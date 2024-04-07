@@ -31,4 +31,15 @@ public class Tante {
 
         return min;
     }
+
+    /**
+     * This method calculates the minimun of a given array of a given length
+     * It uses iteration approach
+     * Time complexity: O(n), where n is the input number
+     * The iterative algorithm iterates through all numbers from 1 to n - 1
+     * resulting in linear time complexity
+     * @param n is a length of array, @param lst is an array, whose minimun element is to be found
+     * @return number is a minimun of given array
+     */
+
 }
