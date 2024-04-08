@@ -49,6 +49,7 @@ public class Tante {
             sum += x;
         }
 
+
         return (double) sum / n;
     }
     /**
@@ -60,4 +61,6 @@ public class Tante {
      * @param n is a length of array, @param lst is an array, whose average is to be found
      * @return average of a given array
      */
+
+
 }
