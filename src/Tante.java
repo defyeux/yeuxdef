@@ -6,6 +6,7 @@ public class Tante {
         System.out.println("Choose number 1-10");
         int ch = scan.nextInt();
         int n, a;
+        String s;
         int[] lst;
         switch (ch) {
             case 1:
@@ -55,6 +56,11 @@ public class Tante {
 
                 System.out.print("The given array in reverse order: ");
                 seventh(n, lst);
+            case 8:
+                System.out.print("Input string: ");
+                s = scan.next();
+                System.out.printf("%s %s", s, eight(s) ? "consists only digits":
+                        "doesn't consist only digits");
         }
     }
 
@@ -191,5 +197,25 @@ public class Tante {
 
         System.out.print(lst[n - 1] + " ");
         seventh(n - 1, lst);
+    }
+
+    /**
+     * This method return if given string consists only digits
+     * It uses recursive approach
+     * Time complexity: O(n), where n is the length of given string
+     * The recursive algorithm iterates through all numbers from n to 0
+     * resulting in linear time complexity
+     * @param s is String that to be checked on the condition
+     * @return true if given string consists only digits, otherwise false
+     */
+
+    private static boolean eight(String s) {
+        if (s.isEmpty()) {
+            return true;
+        }
+
+        if (!Character.isDigit(s.charAt(0))) return false;
+
+        return eight(s.substring(1));
     }
 }
