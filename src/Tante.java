@@ -5,7 +5,7 @@ public class Tante {
         Scanner scan = new Scanner(System.in);
         System.out.println("Choose number 1-10");
         int ch = scan.nextInt();
-        int n;
+        int n, a;
         int[] lst;
         switch (ch) {
             case 1:
@@ -42,7 +42,13 @@ public class Tante {
             case 5:
                 System.out.print("Input integer number: ");
                 n = scan.nextInt();
-                System.out.printf("The %d element of Fibonacci sequence is %d", n, fifth(n));
+                System.out.printf("The %d element of Fibonacci sequence is %d\n", n, fifth(n));
+            case 6:
+                System.out.print("Input a: ");
+                a = scan.nextInt();
+                System.out.print("Input n: ");
+                n = scan.nextInt();
+                System.out.printf("%d^%d = %d\n", a, n, sixth(a, n));
         }
     }
 
@@ -139,5 +145,22 @@ public class Tante {
      * resulting in quadratic time complexity
      * @param n is a number of elements of Fibonacci sequence that to be found
      * @return the n element of Fibonacci sequence
+     */
+
+    private static int sixth(int a, int n) {
+        if (n == 0) return 1;
+
+        return a * sixth(a, n - 1);
+    }
+
+    /**
+     * This method calculate the first given number to the power of the second given number
+     * It uses recursive approach
+     * Time complexity: O(n), where n is the length of the array
+     * The recursive algorithm iterates through all numbers from n to 1
+     * resulting in liniear time complexity
+     * @param a is a power base
+     * @param n is an exponent
+     * @return a to the power of n
      */
 }
