@@ -39,6 +39,10 @@ public class Tante {
                 System.out.print("Input integer number: ");
                 n = scan.nextInt();
                 System.out.printf("Factorial of %d - %d", n, fourth(n));
+            case 5:
+                System.out.print("Input integer number: ");
+                n = scan.nextInt();
+                System.out.printf("The %d element of Fibonacci sequence is %d", n, fifth(n));
         }
     }
 
@@ -117,7 +121,23 @@ public class Tante {
      * Time complexity: O(n), where n is the length of the array
      * The recursive algorithm iterates through all numbers from n to 1
      * resulting in linear time complexity
-     * @param n is a number that is to be found
+     * @param n is a number whose factorial is to be found
      * @return the factorial of given number
+     */
+
+    private static int fifth(int n) {
+        if (n == 0) return 0;
+        if (n == 1) return 1;
+        return fifth(n - 1) + fifth(n - 2);
+    }
+
+    /**
+     * This method calculate element of Fibonacci sequence
+     * It uses recursive approach
+     * Time complexity: O(n^2), where n is the length of the array
+     * The recursive algorithm iterates through all numbers from n to 1
+     * resulting in quadratic time complexity
+     * @param n is a number of elements of Fibonacci sequence that to be found
+     * @return the n element of Fibonacci sequence
      */
 }
