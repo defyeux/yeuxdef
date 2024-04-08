@@ -3,70 +3,102 @@ import java.util.Scanner;
 public class Tante {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        System.out.println("Choose number 1-10");
-        int ch = scan.nextInt();
-        int n, a, k;
-        String s;
-        int[] lst;
-        switch (ch) {
-            case 1:
-                System.out.print("Input n: ");
-                n = scan.nextInt();
-                System.out.printf("Input an array of %d elements: ", n);
-                lst = new int[n];
+        while (true) {
+            System.out.print("Choose number 1-10: ");
 
-                for (int i = 0; i < n; i++) { lst[i] = scan.nextInt(); }
+            int ch = scan.nextInt();
+            int n, a, k, b;
+            String s;
+            int[] lst;
+            switch (ch) {
+                case 1:
+                    System.out.print("Input n: ");
+                    n = scan.nextInt();
+                    System.out.printf("Input an array of %d elements: ", n);
+                    lst = new int[n];
 
-                System.out.printf("The minimum of them: %d\n", first(n, lst));
+                    for (int i = 0; i < n; i++) {
+                        lst[i] = scan.nextInt();
+                    }
 
-            case 2:
-                System.out.print("Input n: ");
-                n = scan.nextInt();
-                System.out.printf("Input an array of %d elements: ", n);
-                lst = new int[n];
+                    System.out.printf("The minimum of them: %d\n", first(n, lst));
 
-                for (int i = 0; i < n; i++) { lst[i] = scan.nextInt(); }
+                    break;
+                case 2:
+                    System.out.print("Input n: ");
+                    n = scan.nextInt();
+                    System.out.printf("Input an array of %d elements: ", n);
+                    lst = new int[n];
 
-                System.out.println("The average of given array: " + second(n, lst));
-            case 3:
-                System.out.print("Input integer number: ");
-                n = scan.nextInt();
-                System.out.printf("%d is %s\n", n, third(n));
-            case 4:
-                System.out.print("Input integer number: ");
-                n = scan.nextInt();
-                System.out.printf("Factorial of %d - %d", n, fourth(n));
-            case 5:
-                System.out.print("Input integer number: ");
-                n = scan.nextInt();
-                System.out.printf("The %d element of Fibonacci sequence is %d\n", n, fifth(n));
-            case 6:
-                System.out.print("Input a: ");
-                a = scan.nextInt();
-                System.out.print("Input n: ");
-                n = scan.nextInt();
-                System.out.printf("%d^%d = %d\n", a, n, sixth(a, n));
-            case 7:
-                System.out.print("Input the length of array: ");
-                n = scan.nextInt();
-                System.out.printf("Input an array of %d elements: ", n);
-                lst = new int[n];
+                    for (int i = 0; i < n; i++) {
+                        lst[i] = scan.nextInt();
+                    }
 
-                for (int i = 0; i < n; i++) { lst[i] = scan.nextInt(); }
+                    System.out.println("The average of given array: " + second(n, lst));
 
-                System.out.print("The given array in reverse order: ");
-                seventh(n, lst);
-            case 8:
-                System.out.print("Input string: ");
-                s = scan.next();
-                System.out.printf("%s %s", s, eight(s) ? "consists only digits":
-                        "doesn't consist only digits");
-            case 9:
-                System.out.print("Input n: ");
-                n = scan.nextInt();
-                System.out.print("Input k: ");
-                k = scan.nextInt();
-                System.out.printf("%d choose %d: %d", n, k, ninth(n, k));
+                    break;
+                case 3:
+                    System.out.print("Input integer number: ");
+                    n = scan.nextInt();
+                    System.out.printf("%d is %s\n", n, third(n));
+
+                    break;
+                case 4:
+                    System.out.print("Input integer number: ");
+                    n = scan.nextInt();
+                    System.out.printf("Factorial of %d - %d\n", n, fourth(n));
+
+                    break;
+                case 5:
+                    System.out.print("Input integer number: ");
+                    n = scan.nextInt();
+                    System.out.printf("The %d element of Fibonacci sequence is %d\n", n, fifth(n));
+
+                    break;
+                case 6:
+                    System.out.print("Input a: ");
+                    a = scan.nextInt();
+                    System.out.print("Input n: ");
+                    n = scan.nextInt();
+                    System.out.printf("%d^%d = %d\n", a, n, sixth(a, n));
+
+                    break;
+                case 7:
+                    System.out.print("Input the length of array: ");
+                    n = scan.nextInt();
+                    System.out.printf("Input an array of %d elements: ", n);
+                    lst = new int[n];
+
+                    for (int i = 0; i < n; i++) {
+                        lst[i] = scan.nextInt();
+                    }
+
+                    System.out.print("The given array in reverse order: ");
+                    seventh(n, lst);
+
+                    break;
+                case 8:
+                    System.out.print("Input string: ");
+                    s = scan.next();
+                    System.out.printf("%s %s", s, eight(s) ? "consists only digits\n" :
+                            "doesn't consist only digits\n");
+                case 9:
+                    System.out.print("Input n: ");
+                    n = scan.nextInt();
+                    System.out.print("Input k: ");
+                    k = scan.nextInt();
+                    System.out.printf("%d choose %d: %d\n", n, k, ninth(n, k));
+
+                    break;
+                case 10:
+                    System.out.print("Input a: ");
+                    a = scan.nextInt();
+                    System.out.print("Input b: ");
+                    b = scan.nextInt();
+                    System.out.printf("The greates common divisor of %d and %d is %d\n", a, b, tenth(a, b));
+
+                    break;
+            }
         }
     }
 
@@ -229,7 +261,7 @@ public class Tante {
      * This method calculate binomial coefficient for given numbers
      * It uses recursive approach
      * Time complexity: O(nk), where n is the length of given string
-     * The recursive algorithm iterates through all numbers from n to 0
+     * The recursive algorithm iterates through all numbers from k to 0
      * resulting in quadratic time complexity
      * @param n is the number of total distinct items
      * @param k is the number of particular items chosen from that total pool
@@ -242,5 +274,22 @@ public class Tante {
         if (k > n) return 0;
         if (n == k || k == 0) return 1;
         return ninth(n - 1, k - 1) + ninth(n - 1, k);
+    }
+
+
+    /**
+     * This method calculate the greatest common divisor of two given numbers
+     * It uses recursive approach
+     * Time complexity: O(log(a)) or O(log(b)), where a and b are given numbers
+     * The recursive algorithm iterates through all numbers from n to 0
+     * resulting in logarithmic time complexity
+     * @param a is the one of the numbers which the greatest common divisor is to be found
+     * @param b is the one of the numbers which the greatest common divisor is to be found
+     * @return the greatest common divisor of two numbers
+     */
+    private static int tenth(int a, int b) {
+        if (b == 0) return a;
+
+        return tenth(b, a % b);
     }
 }
