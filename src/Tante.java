@@ -2,11 +2,14 @@ import java.util.Scanner;
 
 public class Tante {
     public static void main(String[] args) {
+        double startTime, endTime, duration;
+        int ch;
+
         Scanner scan = new Scanner(System.in);
         while (true) {
             System.out.print("Choose number 1-10: ");
 
-            int ch = scan.nextInt();
+            ch = scan.nextInt();
             int n, a, k, b;
             String s;
             int[] lst;
@@ -21,7 +24,12 @@ public class Tante {
                         lst[i] = scan.nextInt();
                     }
 
+                    startTime = System.nanoTime();
                     System.out.printf("The minimum of them: %d\n", first(n, lst));
+                    endTime = System.nanoTime();
+                    duration = (endTime - startTime) / 1000000;
+
+                    System.out.println("Time taken: " + duration + "milliseconds");
 
                     break;
                 case 2:
@@ -34,25 +42,49 @@ public class Tante {
                         lst[i] = scan.nextInt();
                     }
 
+                    startTime = System.nanoTime();
                     System.out.println("The average of given array: " + second(n, lst));
+
+                    endTime = System.nanoTime();
+                    duration = (endTime - startTime) / 1000000;
+
+                    System.out.println("Time taken: " + duration + "milliseconds");
 
                     break;
                 case 3:
                     System.out.print("Input integer number: ");
                     n = scan.nextInt();
+                    startTime = System.nanoTime();
                     System.out.printf("%d is %s\n", n, third(n));
+
+                    endTime = System.nanoTime();
+                    duration = (endTime - startTime) / 1000000;
+
+                    System.out.println("Time taken: " + duration + "milliseconds");
 
                     break;
                 case 4:
                     System.out.print("Input integer number: ");
                     n = scan.nextInt();
+                    startTime = System.nanoTime();
                     System.out.printf("Factorial of %d - %d\n", n, fourth(n));
+
+                    endTime = System.nanoTime();
+                    duration = (endTime - startTime) / 1000000;
+
+                    System.out.println("Time taken: " + duration + "milliseconds");
 
                     break;
                 case 5:
                     System.out.print("Input integer number: ");
                     n = scan.nextInt();
+                    startTime = System.nanoTime();
                     System.out.printf("The %d element of Fibonacci sequence is %d\n", n, fifth(n));
+
+                    endTime = System.nanoTime();
+                    duration = (endTime - startTime) / 1000000;
+
+                    System.out.println("Time taken: " + duration + "milliseconds");
 
                     break;
                 case 6:
@@ -60,7 +92,13 @@ public class Tante {
                     a = scan.nextInt();
                     System.out.print("Input n: ");
                     n = scan.nextInt();
+                    startTime = System.nanoTime();
                     System.out.printf("%d^%d = %d\n", a, n, sixth(a, n));
+
+                    endTime = System.nanoTime();
+                    duration = (endTime - startTime) / 1000000;
+
+                    System.out.println("Time taken: " + duration + "milliseconds");
 
                     break;
                 case 7:
@@ -74,20 +112,40 @@ public class Tante {
                     }
 
                     System.out.print("The given array in reverse order: ");
+                    startTime = System.nanoTime();
                     seventh(n, lst);
+
+                    endTime = System.nanoTime();
+                    duration = (endTime - startTime) / 1000000;
+
+                    System.out.println("Time taken: " + duration + "milliseconds");
 
                     break;
                 case 8:
                     System.out.print("Input string: ");
                     s = scan.next();
+                    startTime = System.nanoTime();
                     System.out.printf("%s %s", s, eight(s) ? "consists only digits\n" :
                             "doesn't consist only digits\n");
+
+                    endTime = System.nanoTime();
+                    duration = (endTime - startTime) / 1000000;
+
+                    System.out.println("Time taken: " + duration + "milliseconds");
+
+                    break;
                 case 9:
                     System.out.print("Input n: ");
                     n = scan.nextInt();
                     System.out.print("Input k: ");
                     k = scan.nextInt();
+                    startTime = System.nanoTime();
                     System.out.printf("%d choose %d: %d\n", n, k, ninth(n, k));
+
+                    endTime = System.nanoTime();
+                    duration = (endTime - startTime) / 1000000;
+
+                    System.out.println("Time taken: " + duration + "milliseconds");
 
                     break;
                 case 10:
@@ -95,10 +153,20 @@ public class Tante {
                     a = scan.nextInt();
                     System.out.print("Input b: ");
                     b = scan.nextInt();
+                    startTime = System.nanoTime();
                     System.out.printf("The greates common divisor of %d and %d is %d\n", a, b, tenth(a, b));
 
+                    endTime = System.nanoTime();
+                    duration = (endTime - startTime) / 1000000;
+
+                    System.out.println("Time taken: " + duration + "milliseconds");
+
                     break;
+                default:
+                    System.out.println("There's no command with such number");
             }
+
+            System.out.println();
         }
     }
 
