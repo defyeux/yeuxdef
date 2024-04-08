@@ -5,7 +5,7 @@ public class Tante {
         Scanner scan = new Scanner(System.in);
         System.out.println("Choose number 1-10");
         int ch = scan.nextInt();
-        int n, a;
+        int n, a, k;
         String s;
         int[] lst;
         switch (ch) {
@@ -61,6 +61,12 @@ public class Tante {
                 s = scan.next();
                 System.out.printf("%s %s", s, eight(s) ? "consists only digits":
                         "doesn't consist only digits");
+            case 9:
+                System.out.print("Input n: ");
+                n = scan.nextInt();
+                System.out.print("Input k: ");
+                k = scan.nextInt();
+                System.out.printf("%d choose %d: %d", n, k, ninth(n, k));
         }
     }
 
@@ -217,5 +223,24 @@ public class Tante {
         if (!Character.isDigit(s.charAt(0))) return false;
 
         return eight(s.substring(1));
+    }
+
+    /**
+     * This method calculate binomial coefficient for given numbers
+     * It uses recursive approach
+     * Time complexity: O(nk), where n is the length of given string
+     * The recursive algorithm iterates through all numbers from n to 0
+     * resulting in quadratic time complexity
+     * @param n is the number of total distinct items
+     * @param k is the number of particular items chosen from that total pool
+     *                                    n
+     * @return binomial coefficient for (   )
+     *                                    k
+     */
+
+    private static int ninth(int n, int k) {
+        if (k > n) return 0;
+        if (n == k || k == 0) return 1;
+        return ninth(n - 1, k - 1) + ninth(n - 1, k);
     }
 }
